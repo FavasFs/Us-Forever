@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #3a1c71, #ff758c);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Animated Gradient */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating particles */
+.particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Intro Section */
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.intro h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  max-width: 500px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Memory Container */
+.container {
+  display: none;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Glass Card */
+.memory {
+  display: none;
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.8s ease;
+}
+
+.memory.active {
+  display: block;
+}
+
+.memory h2 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+/* Image Frame */
+.image-frame {
+  width: 100%;
+  height: 320px;
+  margin: 20px 0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 1.2s ease;
+}
+
+.memory.active img {
+  transform: scale(1.05);
+}
+
+.memory p {
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.buttons button {
+  margin: 10px;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .image-frame {
+    height: 220px;
+  }
+
+  .memory {
+    padding: 20px;
+  }
+}
+
+/* Final Page Styling */
+.final-message {
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.05)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.final-content {
+  padding: 40px 20px;
+  animation: finalFade 1.2s ease forwards;
+}
+
+.final-message h2 {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  font-family: "Playfair Display", serif;
+}
+
+.final-message p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.final-message .inshallah {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+@keyframes finalFade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
